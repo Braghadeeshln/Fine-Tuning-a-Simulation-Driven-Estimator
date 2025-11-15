@@ -6,7 +6,7 @@
 - **OOD Gate:** OOD detector ($\chi^2$ Wald test) in whitened feature space around the initial TS-pre parameter estimate.
 - **GN update:** Trust-region line-searched GN to refine TS-pre parameter estimate before generating the synthetic dataset for retraining heads.
 - **Synthetic dataset and retrain:** Freeze trunk, fine-tune only heads with Huber loss and output-dimension weights using synthetic dataset generated via local Fisher $\mathrm{diag}(G)$ and sensitivity-based sampling.
-  - We approximate the inverse of \(G\) via the SVD of \(J\): keep the top-\(r\) right singular vectors \(V_r\) and project steps as \(V_r V_r^\top \Delta\theta\). This behaves like a low-rank inverse \(G^{-1} \approx V_r \Sigma_r^{-2} V_r^\top\).
+  - We approximate the inverse of $G$ via the SVD of $J$: keep the top-$r$ right singular vectors $V_r$ and project steps as $V_r V_r^\top \Delta\theta$. This behaves like a low-rank inverse $G^{-1} \approx V_r \Sigma_r^{-2} V_r^\top$.
 - **Baselines:**  
   - **PEM**: trajectory least-squares with GN + backtracking.
     - For cascaded water tanks, PEM updates are constrainted to a box $\Theta=[\Theta_{lo}, \Theta_{hi}]$ that contains the pretraining set $\Theta_p$.
